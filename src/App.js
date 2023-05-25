@@ -8,6 +8,7 @@ import Feed from './component/Feed';
 import Searchbar from './component/Searchbar';
 import NavBar from './component/NavBar.js'
 
+
 function App() {
   return (
     <div className="App">
