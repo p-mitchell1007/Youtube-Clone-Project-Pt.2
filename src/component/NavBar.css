@@ -1,0 +1,21 @@
+.NavBar{
+    display: flex;
+    background-color: red;
+    color: white;
+}
+.NavBar > ul{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+}
+.NavBar > ul > a{
+    padding: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+}
+.yt-li{
+    font-size: larger;
+}
