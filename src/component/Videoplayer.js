@@ -3,6 +3,7 @@ import React from 'react';
 import YouTube from 'react-youtube';
 
 const VideoPlayer = ({ video }) => {
+  
   const opts = {
     height: '390',
     width: '640',
