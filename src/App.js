@@ -15,7 +15,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />}></Route>
           <Route path='/about' element={<About />}></Route>
-          <Route path='/video/0MYacOcScG0' element={<VideoPlayer />}></Route>
+          <Route path='/video/:id' element={<VideoPlayer />}></Route>
           <Route path='/search/:searchTerm' element={<Feed />}></Route>
         </Routes>
 
