@@ -1,14 +1,31 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import { searchVideos } from '../api/fetch';
+import Listing from './Listing';
 
 function Feed() {
   const [videos, setVideos] = useState([])
   const {searchTerm} = useParams();
 
-  return (
-    <div>
+  useEffect(()=>{
+    searchVideos(searchTerm)
+    .then((response) => {
+      setVideos(response.items);
+    })
+    .catch((error)=>{
+      setVideos([])
+    })
+  }, [searchTerm])
 
-    </div>
+  return (
+    <section>
+      <div>
+        {videos.map((video) =>{
+          return <Listing video={video} key={video.id.videoId} />
+        })}
+      </div>
+
+    </section>
   )
 }
 
