@@ -1,4 +1,5 @@
 import React from 'react';
+
 import YouTube from 'react-youtube';
 
 const VideoPlayer = ({ video }) => {
@@ -12,9 +13,9 @@ const VideoPlayer = ({ video }) => {
 
   return (
     <div>
-      <YouTube videoId={video.id.videoId} opts={opts} />
-      <h2>{video.snippet.title}</h2>
-      <p>{video.snippet.description}</p>
+      <YouTube videoId = "0MYacOcScG0" opts={opts} />
+      {/* <h2>{video.snippet.title}</h2>
+      <p>{video.snippet.description}</p> */}
     </div>
   );
 };
