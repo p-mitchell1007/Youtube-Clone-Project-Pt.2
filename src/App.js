@@ -6,11 +6,13 @@ import About from './component/About';
 import VideoDetail from './component/VideoDetail';
 import Feed from './component/Feed';
 import Searchbar from './component/Searchbar';
+import NavBar from './component/NavBar';
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
+      <NavBar/>
       <Searchbar />
         <Routes>
           <Route path='/' element={<Home />}></Route>
