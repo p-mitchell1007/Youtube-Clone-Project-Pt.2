@@ -1,0 +1,33 @@
+.about-container {
+    margin: 20px;
+  }
+  
+  .about-description {
+    margin-bottom: 20px;
+  }
+  
+  .teammates {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .teammate {
+    margin-bottom: 20px;
+  }
+  
+  .teammate h4 {
+    margin-bottom: 10px;
+  }
+  
+  .teammate p {
+    margin-bottom: 10px;
+  }
+  
+  .teammate a {
+    color: blue;
+    text-decoration: none;
+  }
+  
+  .teammate a:hover {
+    text-decoration: underline;
+  }
