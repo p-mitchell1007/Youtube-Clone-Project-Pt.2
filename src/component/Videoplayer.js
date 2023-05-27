@@ -1,12 +1,15 @@
 
-import React from 'react';
-import { useParams } from 'react-router-dom';
 
+import "./Videoplayer.css";
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import YouTube from 'react-youtube';
 
-const VideoPlayer = ({ video }) => {
-  const {id} = useParams();
-  
+const VideoPlayer = () => {
+  const { id } = useParams();
+  const [video, setVideo] = useState(null);
+  const API_KEY = 'AIzaSyDn7i8YP_2GuXeYYFqj-fKUDfR4DLfSwr8'; // Replace with your YouTube Data API key
+
   const opts = {
     height: '390',
     width: '640',
@@ -15,62 +18,39 @@ const VideoPlayer = ({ video }) => {
     },
   };
 
+  useEffect(() => {
+    const fetchVideo = async () => {
+      try {
+        const response = await fetch(
+          `https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${id}&key=${API_KEY}`
+        );
+        const data = await response.json();
+        setVideo(data.items[0]);
+      } catch (error) {
+        console.error('Error fetching video:', error);
+      }
+    };
+
+    fetchVideo();
+  }, [id, API_KEY]);
+
   return (
-    <div>
-      <YouTube videoId={id} opts={opts} />
-      {/* <h2>{video.snippet.title}</h2>
-      <p>{video.snippet.description}</p> */}
+    <div className="container">
+      {video ? (
+        <>
+        <div className="video-player">
+          <YouTube videoId={id} opts={opts} />
+        </div>
+        <div className="video-details">
+          <h2 className='video-title'>{video.snippet.title}</h2>
+          <p className='video-description'>{video.snippet.description}</p>
+        </div>
+        </>
+      ) : (
+        <p className="loading-message">Loading...</p>
+      )}
     </div>
   );
 };
 
 export default VideoPlayer;
-
-// import React, { useEffect, useState } from 'react';
-
-// const VideoPlayer = ({ match }) => {
-//   const [video, setVideo] = useState(null);
-
-//   useEffect(() => {
-//     const fetchVideo = async () => {
-//       try {
-//         const response = await fetch(
-//           `https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${match.params.id}&key=AIzaSyDn7i8YP_2GuXeYYFqj-fKUDfR4DLfSwr8`
-//         );
-
-//         const data = await response.json();
-
-//         if (data.items.length > 0) {
-//           setVideo(data.items[0]);
-//         }
-//       } catch (error) {
-//         console.error(error);
-//       }
-//     };
-
-//     fetchVideo();
-//   }, [match.params.id]);
-
-//   return (
-//     <div>
-//       {video ? (
-//         <div>
-//           <h2>{video.snippet.title}</h2>
-//           <p>{video.snippet.description}</p>
-//           <iframe
-//             title="video player"
-//             width="560"
-//             height="315"
-//             src={`https://www.youtube.com/embed/${match.params.id}`}
-//             frameBorder="0"
-//             allowFullScreen
-//           ></iframe>
-//         </div>
-//       ) : (
-//         <p>Loading...</p>
-//       )}
-//     </div>
-//   );
-// };
-
-// export default VideoPlayer;
