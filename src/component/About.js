@@ -25,7 +25,7 @@ function About() {
       <li className='teammate'>
          <h4>Phillip</h4>
          <p>Full Stack Developer currently going through the modules of Pursuit. Passionate about elevating my career in tech and providing for my family.</p>
-           <a href="https://github.com/imjerryjohn">Teammate 3's GitHub</a>
+           <a href="https://github.com/p-mitchell1007">Teammate 4's GitHub</a>
       </li> 
     </ul>
     </div>
