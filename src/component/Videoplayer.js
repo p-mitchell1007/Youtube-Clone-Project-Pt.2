@@ -1,15 +1,12 @@
 
-
 import "./Videoplayer.css";
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-
 import YouTube from 'react-youtube';
 
 const VideoPlayer = () => {
   const { id } = useParams();
   const [video, setVideo] = useState(null);
-  const API_KEY = 'AIzaSyDn7i8YP_2GuXeYYFqj-fKUDfR4DLfSwr8'; // Replace with your YouTube Data API key
 
   const opts = {
     height: '390',
@@ -24,6 +21,7 @@ const VideoPlayer = () => {
       try {
         const response = await fetch(
           `https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${id}&key=${process.env.REACT_APP_API_KEY}`
+
         );
         const data = await response.json();
         setVideo(data.items[0]);
@@ -33,13 +31,24 @@ const VideoPlayer = () => {
     };
 
     fetchVideo();
+
   }, [id, process.env.REACT_APP_API_KEY]);
 
   return (
-    <div>
-      <YouTube videoId={id} opts={opts} />
-      {/* <h2>{video.snippet.title}</h2>
-      <p>{video.snippet.description}</p> */}
+    <div className="container">
+      {video ? (
+        <>
+        <div className="video-player">
+          <YouTube videoId={id} opts={opts} />
+        </div>
+        <div className="video-details">
+          <h2 className='video-title'>{video.snippet.title}</h2>
+          <p className='video-description'>{video.snippet.description}</p>
+        </div>
+        </>
+      ) : (
+        <p className="loading-message">Loading...</p>
+      )}
     </div>
   );
 };

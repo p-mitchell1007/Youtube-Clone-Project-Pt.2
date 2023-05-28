@@ -23,6 +23,8 @@ function App() {
           <div className='page'>
             <Feed />
           </div>}></Route>
+
+          <Route path='/search/:searchTerm' element={<Feed />}></Route>
         </Routes>
 
       </BrowserRouter>
