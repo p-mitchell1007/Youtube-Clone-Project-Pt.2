@@ -16,10 +16,13 @@ function App() {
       <NavBar/>
       <Searchbar />
         <Routes>
-          <Route path='/' element={<Home />}></Route>
+          <Route path='/' element={<Home/>}></Route>
           <Route path='/about' element={<About />}></Route>
           <Route path='/video/:id' element={<VideoPlayer />}></Route>
-          <Route path='/search/:searchTerm' element={<Feed />}></Route>
+          <Route path='/search/:searchTerm' element={
+          <div className='page'>
+            <Feed />
+          </div>}></Route>
         </Routes>
 
       </BrowserRouter>

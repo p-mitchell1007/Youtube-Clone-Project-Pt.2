@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom'
 import { searchVideos } from '../api/fetch';
 import Listing from './Listing';
 
+import './Feed.css'
+
 function Feed() {
   const [videos, setVideos] = useState([])
   const {searchTerm} = useParams();
@@ -18,8 +20,8 @@ function Feed() {
   }, [searchTerm])
 
   return (
-    <section>
-      <div>
+    <section className="">
+      <div className="videos row">
         {videos.map((video) =>{
           return <Listing video={video} key={video.id.videoId} />
         })}
