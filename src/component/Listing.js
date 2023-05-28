@@ -1,15 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import './Listing.css'
 
 function Listing({video}) {
-    console.log(video)
 
   return (
-    <div>
+    <div className='videoCard col'>
         <Link to={`/video/${video.id.videoId}`}>
-                <img src={video.snippet.thumbnails.high.url} alt={`${video.id.videoId}`}/>
+                <img className='thumbnail' src={video.snippet.thumbnails.high.url} alt={`${video.id.videoId}`}/>
         </Link>
-        <div>
+        <div className='videoInfo'>
             <h4>{video.snippet.title}</h4>
         </div>
     </div>

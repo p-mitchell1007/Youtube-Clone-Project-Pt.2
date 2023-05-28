@@ -1,0 +1,22 @@
+h4{
+    font-size: 1rem !important;
+}
+.videoCard{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px;
+}
+
+.videoCard:hover{
+    transform: scale(1.01);
+}
+
+.thumbnail{
+    height: 300px;
+    border-radius: 8px ;
+}
+
+.videoInfo{
+    padding-top: 15px;
+}
+
