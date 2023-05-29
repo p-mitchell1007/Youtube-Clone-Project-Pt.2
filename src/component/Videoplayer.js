@@ -32,8 +32,8 @@ const VideoPlayer = () => {
     };
 
     fetchVideo();
-  }, [id, API_KEY]);
-
+  }, [id]);
+  
   const toggleDescription = () => {
     setShowDescription(!showDescription);
   };
