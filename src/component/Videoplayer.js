@@ -32,7 +32,7 @@ const VideoPlayer = () => {
 
     fetchVideo();
 
-  }, [id, process.env.REACT_APP_API_KEY]);
+  }, [id]);
 
   return (
     <div className="container">

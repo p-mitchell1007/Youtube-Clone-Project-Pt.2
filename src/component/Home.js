@@ -1,4 +1,4 @@
-
+import './Home.css'
 
 import React, { useState } from 'react';
 
@@ -23,7 +23,7 @@ const Home = () => {
       </form>
 
       {searchResults.length === 0 ? (
-        <p>No search results. Please submit a search above.</p>
+        <p className="alert alert-danger">No search results. Please submit a search above.</p>
       ) : (
         <ul>
           {/* Render search results */}
