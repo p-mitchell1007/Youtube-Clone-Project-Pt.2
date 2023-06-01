@@ -8,6 +8,8 @@ import './Feed.css'
 function Feed() {
   const [videos, setVideos] = useState([])
   const {searchTerm} = useParams();
+  const [error, setError] = useState(false);
+
 
   useEffect(()=>{
     searchVideos(searchTerm)
@@ -16,10 +18,12 @@ function Feed() {
     })
     .catch((error)=>{
       setVideos([])
+      setError(true)
     })
   }, [searchTerm])
 
   return (
+
     <section className="">
       <div className="videos row">
         {videos.map((video) =>{

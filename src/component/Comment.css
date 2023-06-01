@@ -1,0 +1,53 @@
+.comments{
+    width: 80%;
+    margin: auto;
+}
+
+.input{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+li{
+    list-style: none;
+}
+
+.nameInput{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    margin-right: 10px;
+}
+label{
+    margin-bottom: 10px !important;
+}
+
+.commentInput{
+    display: flex;
+    flex-direction: column;
+    width: 3    0%;
+    margin-bottom: 20px;
+    margin-right: 10px;
+}
+
+.listOfComments{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin: auto !important;
+    
+}
+
+.listOfComments span{
+    font-size: larger;
+    font-weight: bold;
+}
+
+
+.submit{
+    margin-top: 29px;
+}
+
+.postedComment{
+    text-align: left;
+}
