@@ -1,7 +1,7 @@
 import React from 'react'
 import "./ModalWindow.css"
 
-function ModalWindow({setModalWindow}) {
+function ModalWindow({modalWindow, setModalWindow}) {
 
 // let modal = document.getElementById("myModal");
 // let btn = document.getElementById("myBtn");
@@ -21,11 +21,11 @@ function ModalWindow({setModalWindow}) {
 //   }
 // }
 
-  return  (
+  return (
     <>
         <div id="myModal" class="modal">
             <div class="modal-content">
-                <span class="close" >&times;</span>
+                <span class="close" onClick={() =>{setModalWindow(false)}}>&times;</span>
                 <p>Error, please change your search term and try again</p>
             </div>
         </div>

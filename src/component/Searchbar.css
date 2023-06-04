@@ -18,6 +18,16 @@
 }
 
 .buttn:hover{
-    border-left: 1px solid ;
+    box-shadow: 4px 2px 4px rgba(0, 0, 0, .4);
     cursor: pointer;
+}
+
+.buttn:active{
+    transition: 0.1s;
+}
+
+@media screen and (max-width: 600px){
+    .searchBar{
+        width: 70%;
+    }
 }
