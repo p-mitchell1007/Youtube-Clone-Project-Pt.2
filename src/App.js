@@ -7,6 +7,7 @@ import VideoPlayer from './component/Videoplayer';
 import Feed from './component/Feed';
 import Searchbar from './component/Searchbar';
 import NavBar from './component/NavBar.js'
+import ModalWindow from './component/ModalWindow.js'
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <BrowserRouter>
       <NavBar/>
       <Searchbar />
+      <ModalWindow/>
         <Routes>
           <Route path='/' element={<Home/>}></Route>
           <Route path='/about' element={<About />}></Route>
