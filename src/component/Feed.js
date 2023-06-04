@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Navigate, useNavigate, useParams } from 'react-router-dom'
 import { searchVideos } from '../api/fetch';
 import Listing from './Listing';
 import './Feed.css'
@@ -10,8 +10,8 @@ import SearchError from './SearchError';
 function Feed() {
   const [videos, setVideos] = useState([])
   const {searchTerm} = useParams();
-  const [modalWindow, setModalWindow] = useState(false)
-
+  const [modalWindow, setModalWindow] = useState(true)
+  const navigate = useNavigate()
   const [error, setError] = useState(false);
 
   useEffect(()=>{
@@ -50,18 +50,34 @@ function Feed() {
   return (
     <section className="">
       <div className="videos row">
-      { error ? 
-        <SearchError /> :
-        (modalWindow ? 
-        (<ModalWindow modalWindow={modalWindow} setModalWindow={setModalWindow}/>)
-        : videos.map((video) =>{
-          return <Listing video={video} key={video.id.videoId} />
-        }))
-      }
+      { modalWindow ? 
+        (<ModalWindow modalWindow={modalWindow} setModalWindow={setModalWindow}/>) :
+          videos.map((video) =>{
+            return <Listing video={video} key={video.id.videoId} />
+          })
+        }
+      
       </div>
-
     </section>
   )
 }
 
 export default Feed
+
+
+
+
+
+{/* <section className="">
+<div className="videos row">
+{ error ? 
+  (<SearchError />) :
+  ( true ? 
+  (<ModalWindow modalWindow={modalWindow} setModalWindow={setModalWindow}/>)
+  : videos.map((video) =>{
+    return <Listing video={video} key={video.id.videoId} />
+  }))
+}
+</div>
+
+</section> */}
