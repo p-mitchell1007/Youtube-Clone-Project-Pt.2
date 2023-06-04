@@ -1,29 +1,28 @@
 import React from 'react'
 import "./ModalWindow.css"
 
-function ModalWindow() {
+function ModalWindow({setModalWindow}) {
 
-let modal = document.getElementById("myModal");
-let btn = document.getElementById("myBtn");
-let span = document.getElementsByClassName("close")[0];
+// let modal = document.getElementById("myModal");
+// let btn = document.getElementById("myBtn");
+// let span = document.getElementsByClassName("close")[0];
 
-btn.onclick = function() {
-  modal.style.display = "block";
-}
+// btn.onclick = function() {
+//   modal.style.display = "block";
+// }
 
-span.onclick = function() {
-  modal.style.display = "none";
-}
+// span.onclick = function() {
+//   modal.style.display = "none";
+// }
 
-window.onclick = function(event) {
-  if (event.target === modal) {
-    modal.style.display = "none";
-  }
-}
+// window.onclick = function(event) {
+//   if (event.target === modal) {
+//     modal.style.display = "none";
+//   }
+// }
 
-  return (
+  return  (
     <>
-        <button id="myBtn">Open Modal</button>
         <div id="myModal" class="modal">
             <div class="modal-content">
                 <span class="close" >&times;</span>

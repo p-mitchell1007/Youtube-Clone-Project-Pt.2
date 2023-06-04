@@ -4,7 +4,8 @@ import { searchVideos } from '../api/fetch';
 import Listing from './Listing';
 import './Feed.css'
 import ModalWindow from './ModalWindow.js'
-import './ModalWindow.css'
+import NoPage from './NoPage';
+
 
 function Feed() {
   const [videos, setVideos] = useState([])
@@ -20,17 +21,27 @@ function Feed() {
     })
     .catch((error)=>{
       setVideos([])
-      setModalWindow(!modalWindow)
+      setModalWindow(true)
       setError(true)
     })
   }, [searchTerm,modalWindow])
+
+
+  useEffect(()=>{
+    if (videos === undefined){
+      setModalWindow(true)
+    }
+
+  })
+
 
   return (
 
     <section className="">
       <div className="videos row">
-        {modalWindow && <ModalWindow/>}
-        {videos.map((video) =>{
+        {modalWindow ? 
+        (<ModalWindow setModalWindow={setModalWindow}/>)
+        : videos.map((video) =>{
           return <Listing video={video} key={video.id.videoId} />
         })}
       </div>
