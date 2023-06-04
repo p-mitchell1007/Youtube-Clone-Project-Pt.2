@@ -23,9 +23,9 @@ function ModalWindow({modalWindow, setModalWindow}) {
 
   return (
     <>
-        <div id="myModal" class="modal">
-            <div class="modal-content">
-                <span class="close" onClick={() =>{setModalWindow(false)}}>&times;</span>
+        <div id="myModal" className="modal">
+            <div className="modal-content">
+                <span className="close" onClick={() =>{setModalWindow(false)}}>&times;</span>
                 <p>Error, please change your search term and try again</p>
             </div>
         </div>

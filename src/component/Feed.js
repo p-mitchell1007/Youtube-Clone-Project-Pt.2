@@ -4,6 +4,7 @@ import { searchVideos } from '../api/fetch';
 import Listing from './Listing';
 import './Feed.css'
 import ModalWindow from './ModalWindow.js'
+import SearchError from './SearchError';
 
 
 function Feed() {
@@ -16,11 +17,19 @@ function Feed() {
   useEffect(()=>{
     fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchTerm}&type=video&maxResults=25&key=${process.env.REACT_APP_API_KEY}`)
     .then((response) =>{
+      if (response.ok) {
+        return response.json()
+      } else if (response.status !== 200){
+        setModalWindow(true)
+      }
       console.log(response.status)
-      response.json()
-    })
+  })
     .then((response) => {
       setVideos(response.items);
+      if (response.items.length === 0){
+        setError(true)
+        console.log(response.items.length)
+      }
     })
     .catch((error)=>{
       setVideos([])
@@ -29,16 +38,26 @@ function Feed() {
     })
   }, [searchTerm,modalWindow])
 
-
+// useEffect(()=>{
+//   if (videos.length === 0){
+//     setError(true)
+//   }
+// },[])
+  // if (videos.length === 0){
+  //  setError(true) 
+  // }
 
   return (
     <section className="">
       <div className="videos row">
-        {modalWindow ? 
+      { error ? 
+        <SearchError /> :
+        (modalWindow ? 
         (<ModalWindow modalWindow={modalWindow} setModalWindow={setModalWindow}/>)
         : videos.map((video) =>{
           return <Listing video={video} key={video.id.videoId} />
-        })}
+        }))
+      }
       </div>
 
     </section>
