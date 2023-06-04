@@ -14,7 +14,11 @@ function Feed() {
   const [error, setError] = useState(false);
 
   useEffect(()=>{
-    searchVideos(searchTerm)
+    fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchTerm}&type=video&maxResults=25&key=${process.env.REACT_APP_API_KEY}`)
+    .then((response) =>{
+      console.log(response.status)
+      response.json()
+    })
     .then((response) => {
       setVideos(response.items);
     })
