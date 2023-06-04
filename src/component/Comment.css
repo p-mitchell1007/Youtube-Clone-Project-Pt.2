@@ -5,8 +5,9 @@
 
 .input{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
+    text-align: left;
 }
 
 li{
@@ -16,8 +17,8 @@ li{
 .nameInput{
     display: flex;
     flex-direction: column;
-    width: 30%;
     margin-right: 10px;
+    margin-bottom: 8px;
 }
 label{
     margin-bottom: 10px !important;
@@ -27,7 +28,6 @@ label{
     display: flex;
     flex-direction: column;
     width: 3    0%;
-    margin-bottom: 20px;
     margin-right: 10px;
 }
 
