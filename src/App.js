@@ -7,7 +7,11 @@ import VideoPlayer from './component/Videoplayer';
 import Feed from './component/Feed';
 import Searchbar from './component/Searchbar';
 import NavBar from './component/NavBar.js'
+
 import ModalWindow from './component/ModalWindow.js'
+import SearchError from './component/SearchError'
+import NoPage from './component/NoPage';
+
 
 
 function App() {
@@ -26,7 +30,8 @@ function App() {
             <Feed />
           </div>}></Route>
 
-          <Route path='/search/:searchTerm' element={<Feed />}></Route>
+          <Route path='/search/' element={<SearchError />}></Route>
+          <Route path='*' element={<NoPage />}></Route>
         </Routes>
 
       </BrowserRouter>

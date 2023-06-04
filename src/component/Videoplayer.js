@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import YouTube from 'react-youtube';
 import './Videoplayer.css';
+import Comments from './Comments';
 
 const VideoPlayer = () => {
   const { id } = useParams();
@@ -54,10 +55,14 @@ const VideoPlayer = () => {
               {showDescription && <p className="video-description">{video.snippet.description}</p>}
             </div>
           </div>
+
+          <hr />
+          <Comments id={id}/>
         </>
       ) : (
         <p className="loading-message">Loading...</p>
-      )}
+      )
+      }
     </div>
   );
 };

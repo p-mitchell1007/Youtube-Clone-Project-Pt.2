@@ -11,6 +11,8 @@ function Feed() {
   const {searchTerm} = useParams();
   const [modalWindow, setModalWindow] = useState(false)
 
+  const [error, setError] = useState(false);
+
   useEffect(()=>{
     searchVideos(searchTerm)
     .then((response) => {
@@ -19,10 +21,12 @@ function Feed() {
     .catch((error)=>{
       setVideos([])
       setModalWindow(!modalWindow)
+      setError(true)
     })
   }, [searchTerm,modalWindow])
 
   return (
+
     <section className="">
       <div className="videos row">
         {modalWindow && <ModalWindow/>}
