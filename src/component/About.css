@@ -4,6 +4,7 @@
   
   .about-description {
     margin-bottom: 20px;
+    font-weight: bolder;
   }
   
   .teammates {
@@ -17,17 +18,26 @@
   
   .teammate h4 {
     margin-bottom: 10px;
+    font-weight: bolder;
   }
   
   .teammate p {
     margin-bottom: 10px;
+    font-style: italic;
+    font-weight: bold;
   }
   
   .teammate a {
-    color: blue;
+    color: red;
     text-decoration: none;
   }
   
   .teammate a:hover {
     text-decoration: underline;
   }
+
+  h3 {
+    font-weight: bold;
+  }
+
+ 
