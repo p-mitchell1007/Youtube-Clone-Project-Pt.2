@@ -29,6 +29,8 @@ function Feed() {
       if (response.items.length === 0){
         setError(true)
         console.log(response.items.length)
+      } else {
+        setError(false)
       }
     })
     .catch((error)=>{
