@@ -50,6 +50,11 @@ function Feed() {
   return (
     <section className="">
       <div className="videos row">
+        <div className="errorMessage">
+
+        {error && <SearchError />}
+        </div>
+
       { modalWindow ? 
         (<ModalWindow modalWindow={modalWindow} setModalWindow={setModalWindow}/>) :
           videos.map((video) =>{

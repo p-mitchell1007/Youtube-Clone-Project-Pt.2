@@ -1,3 +1,5 @@
 .videos{
     display: flex;
 }
+
+.errorMessage{margin: auto;}
