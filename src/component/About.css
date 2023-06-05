@@ -1,3 +1,7 @@
+body{
+  background-color: white;
+  }
+
 .about-container {
     margin: 20px;
   }
@@ -31,3 +35,5 @@
   .teammate a:hover {
     text-decoration: underline;
   }
+
+  
