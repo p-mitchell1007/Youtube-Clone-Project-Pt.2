@@ -29,6 +29,8 @@ function Feed() {
       if (response.items.length === 0){
         setError(true)
         console.log(response.items.length)
+      } else {
+        setError(false)
       }
     })
     .catch((error)=>{
@@ -50,6 +52,11 @@ function Feed() {
   return (
     <section className="">
       <div className="videos row">
+        <div className="errorMessage">
+
+        {error && <SearchError />}
+        </div>
+
       { modalWindow ? 
         (<ModalWindow modalWindow={modalWindow} setModalWindow={setModalWindow}/>) :
           videos.map((video) =>{

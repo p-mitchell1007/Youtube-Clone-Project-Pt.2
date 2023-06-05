@@ -1,3 +1,6 @@
 .videos{
+    /* backdrop-filter: 50%; */
     display: flex;
 }
+
+.errorMessage{margin: auto;}
