@@ -17,7 +17,7 @@ function errorHandler() {
         <div id="myModal" className="modal">
             <div className="modal-content">
                 <span className="close" onClick={errorHandler}>&times;</span>
-                <p>Error, please change your search term and try again</p>
+                <p>An error has occured, please try again</p>
             </div>
         </div>
     </>

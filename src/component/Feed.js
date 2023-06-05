@@ -10,7 +10,7 @@ import SearchError from './SearchError';
 function Feed() {
   const [videos, setVideos] = useState([])
   const {searchTerm} = useParams();
-  const [modalWindow, setModalWindow] = useState(true)
+  const [modalWindow, setModalWindow] = useState(false)
   const navigate = useNavigate()
   const [error, setError] = useState(false);
 
