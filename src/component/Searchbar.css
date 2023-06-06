@@ -17,6 +17,11 @@
     border: none;
 }
 
+.btn{
+    background-color: red;
+    color: white;
+}
+
 .buttn:hover{
     box-shadow: 4px 2px 4px rgba(0, 0, 0, .4);
     cursor: pointer;

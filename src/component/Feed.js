@@ -40,15 +40,6 @@ function Feed() {
     })
   }, [searchTerm,modalWindow])
 
-// useEffect(()=>{
-//   if (videos.length === 0){
-//     setError(true)
-//   }
-// },[])
-  // if (videos.length === 0){
-  //  setError(true) 
-  // }
-
   return (
     <section className="">
       <div className="videos row">
