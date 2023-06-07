@@ -16,6 +16,9 @@
     text-decoration: none;
     color: white;
 }
+.NavBar > ul > a:hover{
+    color: black;
+}
 .yt-li{
     font-size: larger;
 }
