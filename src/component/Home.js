@@ -1,9 +1,15 @@
+import ModalWindow from './ModalWindow.js'
+import SearchError from './SearchError';
+import Listing from './Listing';
+
 import './Home.css'
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const Home = () => {
-  const [searchResults, setSearchResults] = useState([]);
+  const [videos, setVideos] = useState([])
+  const [modalWindow, setModalWindow] = useState(false)
+  const [error, setError] = useState(false);
 
   // Function to handle form submission
   const handleSubmit = (e) => {
@@ -15,22 +21,49 @@ const Home = () => {
     // ...
   };
 
-  return (
-    <div className="container">
-      <form onSubmit={handleSubmit}>
-        {/* Search bar and submit button */}
-        {/* ... */}
-      </form>
+  useEffect(()=>{
+    fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet%2CContentDetails%2Cstatistics&chart=mostPopular&regionCode=US&maxResults=21&key=${process.env.REACT_APP_API_KEY}`)
+    .then((response) =>{
+      if (response.ok) {
+        return response.json()
+      } else if (response.status !== 200){
+        setModalWindow(true)
+      }
+      console.log(response.status)
+  })
+    .then((response) => {
+      setVideos(response.items);
+      if (response.items.length === 0){
+        setError(true)
+        console.log(response.items.length)
+      } else {
+        setError(false)
+      }
+    })
+    .catch((error)=>{
+      setVideos([])
+      setModalWindow(true)
+      setError(true)
+    })
+  }, [modalWindow])
 
-      {searchResults.length === 0 ? (
-        <p className="alert alert-danger">No search results. Please submit a search above.</p>
-      ) : (
-        <ul>
-          {/* Render search results */}
-          {/* ... */}
-        </ul>
-      )}
-    </div>
+
+  return (
+    <section className="">
+      <h1>Popular Videos</h1>
+      <div className="videos row">
+        <div className="errorMessage">
+          {error && <SearchError />}
+        </div>
+      { modalWindow ? 
+        (<ModalWindow modalWindow={modalWindow} setModalWindow={setModalWindow}/>) :
+          videos.map((video) =>{
+            return <Listing video={video} key={video.id} />
+          })
+        }
+      
+      </div>
+    </section>
   );
 };
 
