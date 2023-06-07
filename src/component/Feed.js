@@ -59,21 +59,3 @@ function Feed() {
 }
 
 export default Feed
-
-
-
-
-
-{/* <section className="">
-<div className="videos row">
-{ error ? 
-  (<SearchError />) :
-  ( true ? 
-  (<ModalWindow modalWindow={modalWindow} setModalWindow={setModalWindow}/>)
-  : videos.map((video) =>{
-    return <Listing video={video} key={video.id.videoId} />
-  }))
-}
-</div>
-
-</section> */}
