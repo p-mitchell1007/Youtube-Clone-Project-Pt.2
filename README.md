@@ -17,6 +17,16 @@ This project is inteded to be a clone of Youtube while showcasing what we have l
 | `${searchTerm}` | `string` | A String of what will be searched |
 | `${process.env.REACT_APP_API_KEY}` | `string` | **Required**. Your API key |
 
+#### Get Popular Videos
+
+```http
+  GET https://www.googleapis.com/youtube/v3/videos?part=snippet%2CContentDetails%2Cstatistics&chart=mostPopular&regionCode=US&maxResults=21&key=${process.env.REACT_APP_API_KEY}
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `${process.env.REACT_APP_API_KEY}` | `string` | **Required**. Your API key |
+
 #### Get One Video
 
 ```http
@@ -37,6 +47,5 @@ This project is inteded to be a clone of Youtube while showcasing what we have l
 - [@Irwinj7](https://github.com/Irwinj7)
 - [@imjerryjohn](https://github.com/imjerryjohn)
 - [@p-mitchell1007](https://github.com/p-mitchell1007)
-
 
 
