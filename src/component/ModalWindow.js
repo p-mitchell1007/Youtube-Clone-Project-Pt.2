@@ -1,8 +1,8 @@
 import React from 'react'
 import "./ModalWindow.css"
-import { Navigate, useNavigate, useParams } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
-function ModalWindow({modalWindow, setModalWindow}) {
+function ModalWindow() {
 
 const navigate = useNavigate()
 
