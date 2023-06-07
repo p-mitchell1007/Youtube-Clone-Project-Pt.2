@@ -9,7 +9,6 @@ const VideoPlayer = () => {
   const { id } = useParams();
   const [video, setVideo] = useState(null);
   const [showDescription, setShowDescription] = useState(false);
-  const API_KEY = 'YOUR_YOUTUBE_API_KEY';
 
   const opts = {
     height: '390',

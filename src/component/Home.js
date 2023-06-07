@@ -11,15 +11,6 @@ const Home = () => {
   const [modalWindow, setModalWindow] = useState(false)
   const [error, setError] = useState(false);
 
-  // Function to handle form submission
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Perform search and update searchResults state
-    // ...
-
-    // Clear search input
-    // ...
-  };
 
   useEffect(()=>{
     fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet%2CContentDetails%2Cstatistics&chart=mostPopular&regionCode=US&maxResults=21&key=${process.env.REACT_APP_API_KEY}`)
