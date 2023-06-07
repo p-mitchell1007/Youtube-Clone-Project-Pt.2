@@ -46,11 +46,12 @@ const VideoPlayer = () => {
           <div className="video-player">
             <YouTube videoId={id} className="youtube-player" opts={opts} />
           </div>
+          <br />
           <div className="video-details">
             <h2 className="video-title">{video.snippet.title}</h2>
             <div className="description-section">
               <button className="toggle-button" onClick={toggleDescription}>
-                {showDescription ? 'Hide Description' : 'Show Description'}
+                {showDescription ? 'Hide Description' : ' Show Description'}
               </button>
               {showDescription && <p className="video-description">{video.snippet.description}</p>}
             </div>
