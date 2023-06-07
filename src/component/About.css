@@ -39,3 +39,8 @@ body{
   .teammate a:hover {
     text-decoration: underline;
   }
+.avatar{
+  max-width: 450px;
+  border: 1px;
+  border-radius: 360px;
+}
